@@ -1,0 +1,60 @@
+package Tries.TernaryTries;
+
+/**
+ * Ternary Trie Dictionary
+ * 
+ * @author gopi_karmakar
+ */
+public class TernaryTrieDictionary<V> {
+	
+	public final static int PREFIX = 1;
+	public final static int SUFFIX = 2;
+	
+
+	public static void main(String[] args) {			
+		
+		//Node<Character, String> tree = createDefault();				
+		
+		Node<Character, String> pRoot = createPrefixTrie("String", true);		
+		
+		Node<Character, String> sRoot = createSuffixTrie("String", true);		
+		
+		TrieDictionaryTraversals.printAllNodes(pRoot);
+		TrieDictionaryTraversals.printAllNodes(sRoot);
+	}
+	
+	public static Node<Character, String> createDefault() {
+		
+		String[] dict = {"asuka", "kiaan", "keshav", "kia", "tulsi", "karan", "kunal", "kiran", "kabir", "krisha"};
+		
+		Node<Character, String> root = createDefault(dict);
+		
+		return root;
+	}	
+	
+	public static Node<Character, String> createDefault(String[] keys) {		
+		
+		TrieDictionaryCreation<Character, String> trie = new TrieDictionaryCreation<>();
+		Node<Character, String> root = trie.create(keys);
+		
+		return root;
+	}
+	
+	private static TrieDictionaryCreation<Character, String> trie = new TrieDictionaryCreation<>();
+	
+	public static Node<Character, String> createDefault(String key) {
+		return trie.createDefault(key);
+	}
+	
+	public static Node<Character, String> createDefault(String key, String keyToSave) {
+		return trie.createDefault(key, keyToSave);
+	}
+	
+	public static Node<Character, String> createPrefixTrie(String key, boolean saveEveryValue) {
+		return trie.createPrefixTrie(key, saveEveryValue);
+	}
+	
+	public static Node<Character, String> createSuffixTrie(String key, boolean saveEveryValue) {
+		return trie.createSuffixTrie(key, saveEveryValue);
+	}
+}
