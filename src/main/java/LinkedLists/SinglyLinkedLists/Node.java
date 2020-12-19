@@ -42,7 +42,7 @@ public class Node<K> {
 		@SuppressWarnings("unchecked")
 		Node<K> that = (Node<K>) obj;		
 					
-		return this.k.equals(that.k) && this.next.equals(that.next);
+		return this.k.equals(that.k);
 	}
 	
 	@Override

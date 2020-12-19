@@ -15,13 +15,25 @@ public class PalindromicMerging {
 
 	public static void main(String[] args) {
 	
-		String[] keys = {"A", "B", "C", "D", "E"};
+		String[] keys = {"A"};
+		String[] keys1 = {"A", "B"};
+		String[] keys2 = {"A", "B", "C", "D", "E"};
+		String[] keys3 = {"A", "B", "C", "D", "E", "F"};
 		
-		SinglyLinkedList<String> sll = SinglyLinkedList.create(keys);
+		SinglyLinkedList<String> sll = SinglyLinkedList.create(keys3);
 		
 		SinglyLinkedList.print(merge(sll.head));
 	}
 	
+	/**
+	 * 1st Solution: Simple Solution
+	 * Insight:
+	 * 1: Add all the nodes to an ArrayDeque.
+	 * 2: Poll first and last elements of Deque in tandem.
+	 * 3: Create a new list and merge first and last elements in tandem. 
+	 * 
+	 * @see PalindromicMergingII for more efficient solution.
+	 */
 	private static Node<String> merge(Node<String> head) {
 		
 		if(head == null || head.next == null) return head;
