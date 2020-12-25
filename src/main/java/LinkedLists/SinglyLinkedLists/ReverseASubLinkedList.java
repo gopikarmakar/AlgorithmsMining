@@ -17,7 +17,7 @@ public class ReverseASubLinkedList {
 	}
 	
 	/**
-	 * The time complexity is dominated by the search for the fth node, i.e.,O(f).
+	 * The time complexity is dominated by the search for the kth node, i.e.,O(k).
 	 */
 	private static Node<Integer> reverseSubList(Node<Integer> head, int start, int end) {
 		
@@ -34,7 +34,7 @@ public class ReverseASubLinkedList {
 		
 		//1->2->3->4->5->6->7->8->9->10		
 		
-		Node<Integer> prev = subListHead.next;
+		Node<Integer> prev = subListHead.next;				
 		
 		while(++start < end) {
 						
