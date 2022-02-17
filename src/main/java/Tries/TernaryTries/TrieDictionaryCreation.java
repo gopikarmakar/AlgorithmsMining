@@ -51,7 +51,7 @@ public class TrieDictionaryCreation<K, V> {
 		Character ch = key.charAt(d);
 		
 		if(node == null) {			
-			node = new Node<>(ch, null);
+			node = new Node<Character, String>(ch, null);
 		}
 	
 		if(ch < node.k) 				node.left = createDefault(node.left, key, d);
@@ -59,7 +59,7 @@ public class TrieDictionaryCreation<K, V> {
 		else if(ch > node.k)			node.right = createDefault(node.right, key, d);
 			
 		else if(d < key.length()-1)		node.mid = createDefault(node.mid, key, d+1);
-			
+
 		else 							node.v = key;
 				
 		return node;
@@ -102,7 +102,7 @@ public class TrieDictionaryCreation<K, V> {
 		Character ch = key.charAt(d);			
 		
 		if(node == null) {			
-			node = new Node<>(ch, (saveEveryValue) ? prefix+ch : null);
+			node = new Node<Character, String>(ch, (saveEveryValue) ? prefix+ch : null);
 		}
 				
 		if(ch < node.k) 				node.left = createPrefixTrie(node.left, node.v, key, d, saveEveryValue);
@@ -136,7 +136,7 @@ public class TrieDictionaryCreation<K, V> {
 		Character ch = key.charAt(d);			
 				
 		if(node == null) {		
-			node = new Node<>(ch, (saveEveryValue) ? ch+sufix : null);
+			node = new Node<Character, String>(ch, (saveEveryValue) ? ch+sufix : null);
 		}
 		
 		if(ch < node.k)					node.left = createSuffixTrie(node.left, sufix, key, d, saveEveryValue); 
